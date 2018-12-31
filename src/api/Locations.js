@@ -1,5 +1,5 @@
 /* https://developer.foursquare.com/docs/api/configuration/authentication */
-/* Create a promise to fetch the FourSquare API locations. */
+/* Create a promise to fetch the FourSquare API venues. */
 
 const CLIENT_ID = "YRFTTM34KOCWNRCO5W1KH55CQDJYMFQ2TQF1VUW4XZCXF3WK";
 const CLIENT_SECRET = "0K5BCHIE21HDFKVT3KHRAZOETHT5OGTOYQU51MZBYANMHTXJ";
