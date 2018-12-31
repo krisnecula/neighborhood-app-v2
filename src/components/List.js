@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from './Map';
 
-class List extends React.Component {
+class List extends Component {
   render () {
     //return filtered location list
     return (
