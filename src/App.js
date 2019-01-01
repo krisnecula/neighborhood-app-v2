@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Container from './components/Container';
+import Map from './components/Map';
+
+//listen for authentication error
+window.gm_authFailure = () => {
+  alert("Error loading Google Map");
+}
 
 class App extends Component {
 
 //remember to let React access the google variable as a window object with window.google.maps
 initMap() {
   let map = new window.google.maps.Map(document.getElementById("map"), {
-    center: {lat: 40.7128, lng: 74.0060},
-    zoom: 8
+    center: {lat: 40.7128, lng: -74.0060},
+    zoom: 13
   });
+  window.map = map;
 }
 
 //load the asynchronous script so that React will define the google map variable

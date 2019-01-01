@@ -6,7 +6,7 @@ class List extends Component {
     const locations = this.props.locations;
     return (
       <div id="list" aria-label="locations list">
-        <h2>Locations</h2>
+        <h2>NYC - East Village</h2>
         <input id="search"
           placeholder="Search for..."
           type="text"
@@ -19,8 +19,8 @@ class List extends Component {
             {locations.map(loc => (
               <li key={loc.venue.id}>
                 <div>
-                  <p><strong>{loc.venue.name}</strong></p>
-                  <p>Address: {loc.venue.location.formattedAddress[0]}</p>
+                  <p className="venue__title"><a href="#">{loc.venue.name}</a></p>
+                  <p className="venue__address">Address: {loc.venue.location.formattedAddress[0]}</p>
                 </div>
               </li>
             ))}
