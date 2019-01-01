@@ -9,7 +9,10 @@ class Map extends Component {
     if (window.google) {
       for (let i = 0; i < locations.length; i++) {
         let marker = new window.google.maps.Marker({
-          position: new window.google.maps.LatLng(locations[i][1], locations[i][2]),
+          position: {
+            lat: locations[i].venue.location.lat,
+            lng: locations[i].venue.location.lng
+          },
           map: window.mapObject
         });
         this.markers.push(marker);
