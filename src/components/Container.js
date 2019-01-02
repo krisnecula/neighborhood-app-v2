@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import List from './List';
 import Map from './Map';
+import List from './List';
 import * as LocationsAPI from "../api/Locations";
 
 //always include a parent div with any new components.
@@ -12,6 +12,7 @@ import * as LocationsAPI from "../api/Locations";
 //ex: this.state.locations has been passed as a prop to List component and Map component.
 
 class Container extends Component {
+
   state = {
     locations: []
   }
@@ -20,11 +21,21 @@ class Container extends Component {
       this.setState({ locations: resp })
     );
   }
+
+  clickHandler(location) {
+    for (let i = 0; i < window.markers.length; i++) {
+      if (location.venue.id === window.markers[i].title) {
+        window.infowindow.open(window.map, window.marker[i])};
+      }
+  }
+
   render () {
-    console.log("DATA");
+    console.log(this.state.locations);
+
     return (
       <div className="container">
-        <List locations={this.state.locations} />
+        <List locations={this.state.locations}
+        showListing={this.clickHandler} />
         <Map locations={this.state.locations} />
       </div>
     );

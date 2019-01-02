@@ -19,7 +19,9 @@ class List extends Component {
             {locations.map(loc => (
               <li key={loc.venue.id}>
                 <div>
-                  <p className="venue__title"><a href="#">{loc.venue.name}</a></p>
+                  <p className="venue__title"><a href="#"
+                  onClick={() => this.props.showListing(loc)}>
+                  {loc.venue.name}</a></p>
                   <p className="venue__address">Address: {loc.venue.location.formattedAddress[0]}</p>
                 </div>
               </li>

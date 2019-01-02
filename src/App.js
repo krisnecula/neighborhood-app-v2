@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Container from './components/Container';
-import Map from './components/Map';
 
 //listen for authentication error
 window.gm_authFailure = () => {
@@ -15,7 +14,7 @@ class App extends Component {
 initMap() {
   let map = new window.google.maps.Map(document.getElementById("map"), {
     center: {lat: 40.7128, lng: -74.0060},
-    zoom: 13
+    zoom: 14
   });
   window.map = map;
 }
