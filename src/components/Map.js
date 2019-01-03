@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /* https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple */
-/* https://developers.google.com/maps/documentation/javascript/adding-a-google-map */
+/* https://developers.google.com/maps/documentation/javascript/markers */
 /* Create the map markers and infowindows. */
 
 class Map extends Component {
@@ -21,26 +21,41 @@ class Map extends Component {
             lng: locations[i].venue.location.lng
           },
           map: window.map,
-          title: locations[i].venue.id
+          title: locations[i].venue.id,
+          animation: window.google.maps.Animation.DROP
         });
+
+        //https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+       function toggleBounce() {
+         if (marker.getAnimation() !== null) {
+           marker.setAnimation(null);
+         } else {
+           marker.setAnimation(4);
+         }
+       }
+
         //extends the boundaries of the map for each marker
         bounds.extend(marker.position);
 
-        //user clicks the marker
-        marker.addListener('click', function() {
+        // * click event handler for the marker * //
+        marker.addListener('click', () => {
+          let content = this.props.infoContent(locations[i]);
 
-          //creates the content
-          infowindow.setContent(`<div>
-                          <p className="venue__title"><a href="#">${locations[i].venue.name}</a></p>
-                          <p className="venue__address">${locations[i].venue.location.formattedAddress[0]}</p>
-                        </div>`);
+          //creates the content for infowindow
+          infowindow.setContent(content);
 
-          //opens the InfoWindow
+          //opens the infowindow
           infowindow.open(window.map, marker);
+
+          //toggles bounce animation for marker
+          toggleBounce();
           });
+
         window.map.fitBounds(bounds);
         this.markers.push(marker);
       }
+      window.infowindow = infowindow;
+      window.markers = this.markers;
     }
   };
 

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import Map from './Map';
 
+
+//React must keep track of the input value and rerender the components:
+//place a query in the parent component (Container) and pass to value
 class List extends Component {
   render () {
-    //return filtered location list
     const locations = this.props.locations;
     return (
       <div id="list" aria-label="locations list">
@@ -10,10 +13,12 @@ class List extends Component {
         <input id="search"
           placeholder="Search for..."
           type="text"
-          aria-label="search"
-          />
+          aria-label="search input"
+          value={this.props.queryString} onChange={e => this.props.updateQuery(e.target.value)} />
 
-          <button>Search</button>
+          <button aria-label="search button"
+          role="button"
+          tabindex="0">Search</button>
 
           <ol>
             {locations.map(loc => (

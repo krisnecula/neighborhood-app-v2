@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import Container from './components/Container';
 
+/* https://developers.google.com/maps/documentation/javascript/adding-a-google-map */
+
 //listen for authentication error
 window.gm_authFailure = () => {
   alert("Error loading Google Map");

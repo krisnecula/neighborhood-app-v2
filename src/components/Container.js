@@ -14,19 +14,39 @@ import * as LocationsAPI from "../api/Locations";
 class Container extends Component {
 
   state = {
-    locations: []
+    locations: [],
+    query: ""
   }
+
   componentDidMount() {
     LocationsAPI.getLocations().then(resp =>
       this.setState({ locations: resp })
     );
   }
 
-  clickHandler(location) {
+//a click handler which will toggle the google markers infowindows from the filtered list
+  clickHandler = (location) => {
     for (let i = 0; i < window.markers.length; i++) {
       if (location.venue.id === window.markers[i].title) {
-        window.infowindow.open(window.map, window.marker[i])};
+        let content = this.infoContent(location);
+        window.infowindow.setContent(content);
+        window.infowindow.open(window.map, window.markers[i])};
       }
+  }
+
+  infoContent = location => {
+    return `<div>
+              <p className="venue__title">
+                <a href="#">${location.venue.name}</a>
+              </p>
+              <p className="venue__address">
+                ${location.venue.location.formattedAddress[0]}
+              </p>
+            </div>`;
+  };
+
+  queryChange = query => {
+    this.setState({ query });
   }
 
   render () {
@@ -35,8 +55,12 @@ class Container extends Component {
     return (
       <div className="container">
         <List locations={this.state.locations}
-        showListing={this.clickHandler} />
-        <Map locations={this.state.locations} />
+        showListing={this.clickHandler}
+        queryString={this.state.query}
+        updateQuery={this.queryChange} />
+
+        <Map locations={this.state.locations}
+        infoContent={this.infoContent} />
       </div>
     );
   }

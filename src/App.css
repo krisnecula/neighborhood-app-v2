@@ -2,14 +2,44 @@
   text-align: center;
 }
 
+#header {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+/* Style the header links */
+#header h1 {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+  font-size: 26px;
+  border-radius: 4px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 20px;
+  border-radius: 4px;
+}
+
 #map {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 #list {
-    width: 25%;
-    height: 100%;
-    background-color: #ccc;
-    z-index: 1;
-    position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: #FAF0E6;
+  z-index: 1;
+  position: absolute;
+  overflow-y: scroll;
+}
+
+ol li {
+  background: #cceeff;
+  margin: 5px;
+  text-align: left;
+  padding: 5px;
 }
