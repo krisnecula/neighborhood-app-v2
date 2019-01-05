@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Container from './components/Container';
+import ErrorBoundary from './components/ErrorBoundary';
 
 /* https://developers.google.com/maps/documentation/javascript/adding-a-google-map */
 
@@ -47,11 +48,12 @@ createMapScript () {
   render() {
     this.loadScript();
     return (
-
-    <div className="App">
-      <Header />
-      <Container />
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Header />
+        <Container />
+      </div>
+    </ErrorBoundary>
   )
   }
 }
