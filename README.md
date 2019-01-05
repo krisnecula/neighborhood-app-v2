@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The end result will be an app that maps out locations in East Village, New York City. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The end result will be an application that maps out Museum locations near my neighborhood of the East Village in New York City. 
 
 ## Installation
 

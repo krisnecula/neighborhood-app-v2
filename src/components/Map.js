@@ -8,7 +8,8 @@ class Map extends Component {
     markers = [];
     addMarkers = locations => {
     if (window.google) {
-      //creates the InfoWindow
+
+      //creates the infowindow
       let infowindow = new window.google.maps.InfoWindow();
 
       //keeps map in bounds of listings
@@ -58,6 +59,12 @@ class Map extends Component {
       window.markers = this.markers;
     }
   };
+
+  setMapMarkers = () => {
+    for (let i=0; i < this.markers.length; i++) {
+      this.markers.setMap(null);
+    }
+  }
 
     render () {
       console.log("LOCATIONS", this.props.locations);

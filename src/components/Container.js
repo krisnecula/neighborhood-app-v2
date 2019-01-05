@@ -4,8 +4,7 @@ import List from './List';
 import * as LocationsAPI from "../api/Locations";
 
 //always include a parent div with any new components.
-//for our componentDidMount we're importing our promise as LocationsAPI
-//to use in our components.
+//for our componentDidMount we're importing our promise as LocationsAPI to use in our components.
 
 //store the API data in a state and hook it to our imported LocationsAPI promise
 //to keep the data dynamic and pass it throughout our components.
@@ -15,14 +14,16 @@ class Container extends Component {
 
   state = {
     locations: [],
+    allLocations: [],
     query: ""
   }
 
   componentDidMount() {
     LocationsAPI.getLocations().then(resp =>
-      this.setState({ locations: resp })
+      this.setState({ locations: resp, allLocations: resp })
     );
   }
+
 
 //a click handler which will toggle the google markers infowindows from the filtered list
   clickHandler = (location) => {
@@ -34,6 +35,7 @@ class Container extends Component {
       }
   }
 
+//populates the content for the infowindow
   infoContent = location => {
     return `<div>
               <p className="venue__title">
@@ -45,8 +47,19 @@ class Container extends Component {
             </div>`;
   };
 
+//filter locations upon user input
   queryChange = query => {
     this.setState({ query });
+    if (query) {
+      this.setState({locations: this.filterLocations(query, this.state.locations)
+      })
+    } else {
+      this.setState({locations: this.state.allLocations})
+    }
+  };
+
+  filterLocations = (query, locations) => {
+    return locations.filter(location => location.venue.name.toLowerCase().includes(query.toLowerCase()));
   }
 
   render () {
@@ -54,12 +67,14 @@ class Container extends Component {
 
     return (
       <div className="container">
-        <List locations={this.state.locations}
+        <List
+        locations={this.state.locations}
         showListing={this.clickHandler}
         queryString={this.state.query}
         updateQuery={this.queryChange} />
 
-        <Map locations={this.state.locations}
+        <Map
+        locations={this.state.locations}
         infoContent={this.infoContent} />
       </div>
     );
