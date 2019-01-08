@@ -47,6 +47,7 @@ class Container extends Component {
             </div>`;
   };
 
+
 //filter locations upon user input
   queryChange = query => {
     this.setState({ query });
@@ -71,7 +72,8 @@ class Container extends Component {
         locations={this.state.locations}
         showListing={this.clickHandler}
         queryString={this.state.query}
-        updateQuery={this.queryChange} />
+        updateQuery={this.queryChange}
+        />
 
         <Map
         locations={this.state.locations}

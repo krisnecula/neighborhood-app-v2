@@ -46,13 +46,14 @@ h2 {
 #searchbar {
 	cursor: pointer;
   text-shadow: 0 0 1px #000;
-	letter-spacing: 4px;
-	word-spacing: 8px;
+	letter-spacing: 2px;
+	word-spacing: 3px;
   padding: 10px;
   width: 150px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  font-size: 12px;
 }
 
 ol li {
@@ -104,7 +105,7 @@ a:hover {
   #searchbar {
     font-size: 9px;
   	letter-spacing: 2px;
-  	word-spacing: 4px;
+  	word-spacing: 3px;
     padding: 5px;
     width: 100px;
   }

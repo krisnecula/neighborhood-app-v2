@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+/* Create the map markers and infowindows. */
 /* https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple */
 /* https://developers.google.com/maps/documentation/javascript/markers */
-/* Create the map markers and infowindows. */
-/*https://github.com/scottdejonge/map-icons*/
+/* icon credit: https://github.com/scottdejonge/map-icons */
+/* resizing google map icons: https://stackoverflow.com/questions/15096461/resize-google-maps-marker-icon-image */
 
 class Map extends Component {
     markers = [];
@@ -15,7 +16,14 @@ class Map extends Component {
 
       //keeps map in bounds of listings
       const bounds = new window.google.maps.LatLngBounds();
-      const image = 'https://svgshare.com/i/ARN.svg';
+
+      const image = {
+        url: 'https://svgshare.com/i/ARN.svg',
+        scaledSize: new window.google.maps.Size(32, 32),
+        origin: new window.google.maps.Point(0,0),
+        anchor: new window.google.maps.Point(0, 0)
+      };
+
       for (let i = 0; i < locations.length; i++) {
         let marker = new window.google.maps.Marker({
           position: {
@@ -37,6 +45,7 @@ class Map extends Component {
            marker.setAnimation(4);
          }
        }
+
 
         //extends the boundaries of the map for each marker
         bounds.extend(marker.position);

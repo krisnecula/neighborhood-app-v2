@@ -5,8 +5,10 @@ import { Debounce } from 'react-throttle';
 //place a query in the parent component (Container) and pass to value
 
 //source for Debounce: https://github.com/gmcquistin/react-throttle
+//source for bounce animation solution: https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
 
 class List extends Component {
+
   render () {
     const locations = this.props.locations;
     return (
@@ -45,6 +47,6 @@ class List extends Component {
       </div>
     );
   }
-};
+}
 
   export default List;
