@@ -1,3 +1,7 @@
+/* searchbar:
+* https://css-tricks.com/webkit-html5-search-inputs/
+* https://stackoverflow.com/questions/20954521/rounded-border-text-input-css */
+
 .App {
   text-align: center;
   font-family: Palatino;
@@ -10,17 +14,19 @@
 
 #header h1 {
   float: left;
-  color: black;
+  color: #000;
   text-align: center;
   padding: 15px;
   color: #fff;
   font-size: 26px;
+  text-transform: uppercase;
 }
 
 h2 {
+  color: #585858;
   text-align: center;
   font-size: 20px;
-  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 #map {
@@ -35,6 +41,19 @@ h2 {
   position: absolute;
   overflow-y: scroll;
   padding-left: 1.8em
+}
+
+#searchbar {
+	text-align: center;
+	cursor: pointer;
+  text-shadow: 0 0 1px #000;
+	letter-spacing: 4px;
+	word-spacing: 8px;
+  padding: 10px;
+  width: 150px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
 }
 
 ol li {
@@ -67,7 +86,7 @@ a:hover {
 @media only screen and (max-width: 700px) {
 
   #header h1 {
-    padding: 10px;
+    padding: 8px;
     font-size: 20px;
   }
 
@@ -82,6 +101,14 @@ a:hover {
 		margin: 0;
     width: 150px;
 	}
+
+  #searchbar {
+    font-size: 9px;
+  	letter-spacing: 2px;
+  	word-spacing: 4px;
+    padding: 5px;
+    width: 100px;
+  }
 
   ol li {
     margin-left: -2em;

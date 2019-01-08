@@ -14,16 +14,18 @@ class Map extends Component {
 
       //keeps map in bounds of listings
       const bounds = new window.google.maps.LatLngBounds();
-
+      const image = 'https://svgshare.com/i/ARN.svg';
       for (let i = 0; i < locations.length; i++) {
         let marker = new window.google.maps.Marker({
           position: {
             lat: locations[i].venue.location.lat,
             lng: locations[i].venue.location.lng
           },
+          icon: image,
           map: window.map,
           title: locations[i].venue.id,
-          animation: window.google.maps.Animation.DROP
+          animation: window.google.maps.Animation.DROP,
+          mapTypeId: 'terrain'
         });
 
         //https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once

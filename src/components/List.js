@@ -13,7 +13,7 @@ class List extends Component {
       <div id="search"
       role="search"
       aria-label="Museum locations filter">
-        <h2 tabIndex="2">NYC East Village</h2>
+        <h2 tabIndex="2">Near East Village:</h2>
       <Debounce time="400" handler="onChange">
         <input id="searchbar"
           placeholder="Search for..."
