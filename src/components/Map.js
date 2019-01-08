@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 /* https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple */
 /* https://developers.google.com/maps/documentation/javascript/markers */
 /* Create the map markers and infowindows. */
+/*https://github.com/scottdejonge/map-icons*/
 
 class Map extends Component {
     markers = [];
