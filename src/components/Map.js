@@ -63,14 +63,15 @@ class Map extends Component {
     }
   };
 
-  setMapMarkers = () => {
+deleteMarkers = () => {
     for (let i=0; i < this.markers.length; i++) {
-      this.markers.setMap(null);
+      this.markers[i].setMap(null);
     }
   }
 
     render () {
       console.log("LOCATIONS", this.props.locations);
+      this.deleteMarkers();
       this.addMarkers(this.props.locations);
     return <div id="map" />;
   }

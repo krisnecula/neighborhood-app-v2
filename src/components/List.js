@@ -14,13 +14,11 @@ class List extends Component {
       role="search"
       aria-label="Museum locations filter">
         <h2 tabIndex="2">Near East Village:</h2>
-      <Debounce time="400" handler="onChange">
         <input id="searchbar"
           placeholder="Search for..."
           type="text"
           aria-label="Search input"
           value={this.props.queryString} onChange={e => this.props.updateQuery(e.target.value)} />
-      </Debounce>
           <ol>
             {locations.map(loc => (
               <li key={loc.venue.id}>
