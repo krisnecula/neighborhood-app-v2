@@ -16,6 +16,7 @@ Download project repo and install npm by running `npm install` in the terminal. 
 To run this app in production build:
 
 `npm run build`
+
 `serve -s build`
 
 And then visit localhost:5000

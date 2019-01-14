@@ -19,7 +19,7 @@ class List extends Component {
           aria-label="Search input"
           value={this.props.queryString} onChange={e => this.props.updateQuery(e.target.value)} />
           <ol>
-            {locations.map(loc => (
+            {locations === undefined ? "There was an error attempting to load the locations list. Please try again later.": locations.map(loc => (
               <li key={loc.venue.id}>
 
                 <div id="list"

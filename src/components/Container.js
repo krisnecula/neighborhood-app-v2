@@ -33,7 +33,7 @@ clickHandler = (location) => {
       let content = this.infoContent(location);
       window.infowindow.setContent(content);
       window.infowindow.open(window.map, window.markers[i]);
-      window.markers.push(new window.google.maps.Marker({animation: window.google.maps.Animation.DROP}));
+      window.markers[i].setAnimation(4);
       }
   }
 };
