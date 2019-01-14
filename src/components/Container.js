@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from './Map';
 import List from './List';
 import * as LocationsAPI from "../api/Locations";
+import axios from 'axios';
 
 //always include a parent div with any new components.
 //for our componentDidMount we're importing our promise as LocationsAPI to use in our components.
@@ -26,14 +27,16 @@ class Container extends Component {
 
 
 //a click handler which will toggle the google markers infowindows from the filtered list
-  clickHandler = (location) => {
-    for (let i = 0; i < window.markers.length; i++) {
-      if (location.venue.id === window.markers[i].title) {
-        let content = this.infoContent(location);
-        window.infowindow.setContent(content);
-        window.infowindow.open(window.map, window.markers[i])};
+clickHandler = (location) => {
+  for (let i = 0; i < window.markers.length; i++) {
+    if (location.venue.id === window.markers[i].title) {
+      let content = this.infoContent(location);
+      window.infowindow.setContent(content);
+      window.infowindow.open(window.map, window.markers[i]);
+      window.markers.push(new window.google.maps.Marker({animation: window.google.maps.Animation.DROP}));
       }
   }
+};
 
 //populates the content for the infowindow
   infoContent = location => {
@@ -77,7 +80,8 @@ class Container extends Component {
 
         <Map
         locations={this.state.locations}
-        infoContent={this.infoContent} />
+        infoContent={this.infoContent}
+        toggleBounce={this.toggleBounce} />
       </div>
     );
   }

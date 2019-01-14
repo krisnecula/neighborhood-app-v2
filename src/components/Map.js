@@ -17,7 +17,7 @@ class Map extends Component {
       //keeps map in bounds of listings
       const bounds = new window.google.maps.LatLngBounds();
 
-      const image = {
+      let image = {
         url: 'https://svgshare.com/i/ARN.svg',
         scaledSize: new window.google.maps.Size(32, 32),
         origin: new window.google.maps.Point(0,0),
@@ -45,7 +45,6 @@ class Map extends Component {
            marker.setAnimation(4);
          }
        }
-
 
         //extends the boundaries of the map for each marker
         bounds.extend(marker.position);

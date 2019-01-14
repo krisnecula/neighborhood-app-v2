@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Debounce } from 'react-throttle';
 
 //React must keep track of the input value and rerender the components:
 //place a query in the parent component (Container) and pass to value
-
-//source for Debounce: https://github.com/gmcquistin/react-throttle
 //source for bounce animation solution: https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
 
 class List extends Component {

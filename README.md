@@ -7,11 +7,18 @@
 
 ## Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The end result will be an application that maps out Museum locations near my neighborhood of the East Village in New York City. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The end result will be an application that maps out Museum locations near my neighborhood of the East Village in New York City.
 
 ## Installation
 
 Download project repo and install npm by running `npm install` in the terminal. Start the development server by running `npm start` in the terminal.
+
+To run this app in production build:
+
+`npm run build
+serve -s build`
+
+And then visit localhost:5000
 
 # Built With
 
